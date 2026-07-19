@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — My Namaz</title>
-<meta name="description" content="Why a cybersecurity professional with 25+ years in the industry built My Namaz — a free way for any UK mosque to share its real timetable — and why it will never collect your data.">
+<title>Download — My Namaz</title>
+<meta name="description" content="Get My Namaz for iPhone or Android. This page detects your device and shows you the right link automatically.">
 <meta name="theme-color" content="#0C1613">
 <style>
 /* ============================================================
@@ -350,32 +350,6 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
 }
 .signoff .role{font-size:13px; color:var(--muted-2);}
 
-/* author portrait shown at the top of the story */
-.author-photo{
-  margin:0 0 40px;
-  padding:12px;
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:22px;
-  max-width:460px;
-  box-shadow:0 30px 60px -30px rgba(0,0,0,.6);
-}
-.author-photo img{
-  width:100%;
-  height:auto;
-  border-radius:14px;
-  display:block;
-}
-.author-photo figcaption{
-  text-align:center;
-  font-size:13.5px;
-  color:var(--muted);
-  padding:14px 6px 4px;
-  font-family:'Fraunces', Georgia, serif;
-  font-style:italic;
-  letter-spacing:.01em;
-}
-
 /* ---------- download page ---------- */
 .detect-card{
   background:var(--panel); border:1px solid var(--line); border-radius:28px;
@@ -464,83 +438,75 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
     </button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="submit-mosque.html">For mosques</a></li>
       <li><a href="privacy-policy.html">Privacy</a></li>
-      <li><a href="download.html" class="cta">Download</a></li>
+      <li><a href="download.html" class="cta active">Download</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="page-hero">
-  <div class="wrap">
-    <span class="eyebrow">About the developer</span>
-    <h1>Why I built My Namaz.</h1>
-    <p class="lede">A free way for any UK mosque to share its real timetable — and why I built it that way.</p>
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow" style="justify-content:center;">Get the app</span>
+    <h1 style="max-width:none;">One app. Wherever you carry it.</h1>
+    <p class="lede" style="margin:0 auto;">This page automatically detects whether you're on iPhone or Android and shows you the right store link — no guessing required.</p>
   </div>
 </header>
 
 <section class="tight">
   <div class="wrap">
-    <div class="prose">
 
-      <figure class="author-photo">
-        <img src="img/si-medina.jpg" alt="Shofiqul Islam standing in the courtyard of Masjid an-Nabawi in Medina at night, with the green dome and minarets illuminated in the background">
-        <figcaption>At Masjid an-Nabawi, Medina.</figcaption>
-      </figure>
-
-      <p>My name's Shofiqul Islam — Si, to most people. I'm not an app developer by trade. I've spent 25+ years in cybersecurity and risk assurance. My Namaz started as a personal itch, not a business plan.</p>
-
-      <p>Like a lot of Muslims, I had a prayer app on my phone for years. Then another one, when the first started showing me ads between prayers. Then another, when that one wanted an account before it would tell me the time of Maghrib. Every app I tried had the same problem: the one thing I actually needed — <strong>how long until the next salah</strong> — was buried under features I never asked for. I built My Namaz because every prayer app I tried was full of ads, accounts, and clutter. I just wanted a clean countdown, a Qibla, and a proper timetable.</p>
-
-      <p class="muted">None of that is what I open a prayer app for. I open it to see two things: what time is it now, and how long have I got.</p>
-
-      <h2>The mission</h2>
-      <p>Once the app itself was solid, a bigger gap became obvious. Big mosques can afford their own apps. Smaller mosques cannot. Their congregations end up relying on generic prayer-time calculations that don't match the times their own mosque actually publishes — jama'ah times in particular, which no calculation can guess. <strong>My Namaz gives any UK mosque a free way to share its real timetable, selectable by name — so every congregation can carry their mosque's own times.</strong></p>
-
-      <p>I built it for myself first, then handed it to my family to try. Then a few friends asked for it. Then their families asked. What was meant to stay a personal tool on my phone turned into something I couldn't fairly keep to myself — so I did it properly: a real iOS app, a real Android app, built with the same care I'd bring to anything at work, tested through TestFlight and closed testing, and submitted to both app stores.</p>
-
-      <blockquote>I didn't set out to build "an app." I set out to fix a countdown timer — and then to make sure it told the truth for your own mosque. Everything since has been in service of those two ideas.</blockquote>
-
-      <h2>Privacy isn't a feature here — it's the starting position</h2>
-      <p>No accounts, no ads, no tracking. Your location stays on your device. This part isn't marketing. It's how I actually think about software, because it's how I've spent my career thinking about it.</p>
-
-      <div class="credential-card">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 5-3.4 8.4-7 9-3.6-.6-7-4-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div>
-          <h4>CISSP · 25+ years in cybersecurity &amp; risk assurance</h4>
-          <p>I assess and audit information risk for a living. When I sat down to design My Namaz, I approached my own data handling the same way I'd approach anyone else's: assume every byte you collect is a liability, not an asset — so don't collect it.</p>
-        </div>
+    <div class="detect-card" id="detectCard">
+      <div class="platform-icon" id="platformIcon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 19h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
+      <div class="detect-status" id="detectStatus">Detecting your device…</div>
+      <h2 id="detectHeadline" style="margin-bottom:6px;">My Namaz</h2>
+      <p id="detectSub" style="margin-bottom:0;">One moment while we work out the right store for you.</p>
 
-      <p>That's why My Namaz calculates everything on your device. Your location is used to work out prayer times and Qibla direction, and it never leaves your phone. There are no accounts, no analytics, no advertising identifiers, and nothing sold or shared with anyone. It's not a promise I'm asking you to trust blindly — it's written out in full on the <a href="privacy-policy.html" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">privacy policy</a>, in plain language, exactly as I'd want it explained to me.</p>
-
-      <h2>A small sadaqah e jariyah</h2>
-      <p>I built My Namaz to be free, and it always will be. My hope for it is simple: that it acts as a <strong>sadaqah e jariyah</strong> — an ongoing charity — for as long as it's useful to someone. Every time someone prays a little more on time because a clean countdown reminded them, or a congregation carries their own mosque's times in their pocket, that's the whole point of the app doing its job. I don't need it to be more than that.</p>
-
-      <p>What I didn't expect was the response. Since sharing it beyond my own family, I've been genuinely humbled by how many people in the Muslim community have tried it, sent feedback, and asked friends to install it too. That reaction is the reason an HTML page for my own phone turned into two proper apps in app store review right now. I'm grateful for it, and I'll keep building on that trust rather than spending it.</p>
-
-      <p>If your own mosque isn't listed yet, ask them to <a href="submit-mosque.html" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">submit their timetable at mynamaz.co.uk</a> — it takes a few minutes and costs nothing.</p>
-
-      <div class="signoff">
-        <span class="sig">Si Islam</span>
-        <div>
-          <div style="font-size:14px; color:var(--cream); font-weight:600;">Shofiqul Islam</div>
-          <div class="role">Developer, My Namaz · CISSP</div>
-        </div>
-      </div>
-
+      <div id="primaryAction" style="margin-top:28px;"></div>
     </div>
+
+    <div class="other-platform" style="text-align:center;">
+      Not on this device? <a href="#both">See both platforms below</a>.
+    </div>
+
   </div>
 </section>
 
-<section class="tight">
+<section class="tight" id="both">
   <div class="wrap">
-    <div class="band">
-      <span class="eyebrow">Try it yourself</span>
-      <h2>See if it's as simple as I say it is.</h2>
-      <div class="band-actions">
-        <a href="download.html" class="btn btn-gold">Get the app</a>
+    <div class="section-head" style="margin:0 auto 40px; text-align:center; max-width:520px;">
+      <span class="eyebrow" style="justify-content:center;">Choose your platform</span>
+      <h2>Both stores, one app.</h2>
+    </div>
+
+    <div class="store-badges">
+      <a class="store-badge" id="badgeIOS" href="#" onclick="return false;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 1c.1 1.1-.3 2.2-1 3-.7.8-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-3 .8-.8 2-1.4 3-1.4Zm3.9 16.6c-.5 1.1-.7 1.6-1.4 2.6-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.6-3.7-3-2.5-3.9-2.8-8.5-1.2-10.9 1.1-1.7 2.9-2.7 4.6-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.3.3 8.7Z"/></svg>
+        <span>
+          <b>App Store</b>
+          <span>iPhone &amp; iPad</span>
+        </span>
+      </a>
+      <a class="store-badge" id="badgeAndroid" href="#" onclick="return false;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18.5c0 .4.3.7.7.7h.8v2.9c0 .8.6 1.4 1.4 1.4s1.4-.6 1.4-1.4v-2.9h2.4v2.9c0 .8.6 1.4 1.4 1.4s1.4-.6 1.4-1.4v-2.9h.8c.4 0 .7-.3.7-.7v-9H6v9ZM4.3 9.2c-.7 0-1.3.6-1.3 1.3v6.4c0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3v-6.4c0-.7-.6-1.3-1.3-1.3Zm15.4 0c-.7 0-1.3.6-1.3 1.3v6.4c0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3v-6.4c0-.7-.6-1.3-1.3-1.3ZM15.5 3.3l1-1.7a.3.3 0 0 0-.5-.3l-1 1.8a5.6 5.6 0 0 0-4 0l-1-1.8a.3.3 0 1 0-.5.3l1 1.7C8.6 4.1 7.3 5.9 7.2 8h9.6c-.1-2.1-1.4-3.9-3.3-4.7ZM9.8 6.4a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2Zm4.4 0a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2Z"/></svg>
+        <span>
+          <b>Google Play</b>
+          <span>Android</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="status-grid">
+      <div class="status-card">
+        <h4><span class="dot"></span>iOS — in App Store review</h4>
+        <p>Submitted after TestFlight testing. Once Apple approves the build, this button will link straight to the App Store listing.</p>
+      </div>
+      <div class="status-card">
+        <h4><span class="dot"></span>Android — closed testing</h4>
+        <p>Running its required closed-testing period on Google Play ahead of a full production release. The link here will go live the moment testing closes.</p>
       </div>
     </div>
   </div>
@@ -561,6 +527,97 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
   </div>
   <div class="wrap"><p class="fnote">© 2026 Shofiqul Islam. All rights reserved.</p></div>
 </footer>
+
+<script>
+/* =========================================================================
+   DEVICE DETECTION — Android vs iOS store link
+   -------------------------------------------------------------------------
+   Fill these in the moment each listing goes live. Until then, both are
+   null and every button below correctly shows a "coming soon" state
+   instead of a dead link.
+   ========================================================================= */
+const STORE_LINKS = {
+  ios:     null, // e.g. "https://apps.apple.com/app/id0000000000"
+  android: null, // e.g. "https://play.google.com/store/apps/details?id=com.si.mynamaz"
+};
+
+function detectPlatform(){
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  if (/android/i.test(ua)) return 'android';
+  if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+  // iPadOS 13+ reports as Mac — catch via touch support
+  if (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) return 'ios';
+  return 'other';
+}
+
+function renderPrimaryAction(platform){
+  const icon = document.getElementById('platformIcon');
+  const status = document.getElementById('detectStatus');
+  const headline = document.getElementById('detectHeadline');
+  const sub = document.getElementById('detectSub');
+  const action = document.getElementById('primaryAction');
+
+  const iosIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 1c.1 1.1-.3 2.2-1 3-.7.8-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-3 .8-.8 2-1.4 3-1.4Zm3.9 16.6c-.5 1.1-.7 1.6-1.4 2.6-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.6-3.7-3-2.5-3.9-2.8-8.5-1.2-10.9 1.1-1.7 2.9-2.7 4.6-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.3.3 8.7Z"/></svg>`;
+  const androidIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18.5c0 .4.3.7.7.7h.8v2.9c0 .8.6 1.4 1.4 1.4s1.4-.6 1.4-1.4v-2.9h2.4v2.9c0 .8.6 1.4 1.4 1.4s1.4-.6 1.4-1.4v-2.9h.8c.4 0 .7-.3.7-.7v-9H6v9ZM4.3 9.2c-.7 0-1.3.6-1.3 1.3v6.4c0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3v-6.4c0-.7-.6-1.3-1.3-1.3Zm15.4 0c-.7 0-1.3.6-1.3 1.3v6.4c0 .7.6 1.3 1.3 1.3s1.3-.6 1.3-1.3v-6.4c0-.7-.6-1.3-1.3-1.3ZM15.5 3.3l1-1.7a.3.3 0 0 0-.5-.3l-1 1.8a5.6 5.6 0 0 0-4 0l-1-1.8a.3.3 0 1 0-.5.3l1 1.7C8.6 4.1 7.3 5.9 7.2 8h9.6c-.1-2.1-1.4-3.9-3.3-4.7ZM9.8 6.4a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2Zm4.4 0a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2Z"/></svg>`;
+
+  function button(link, label, sublabel){
+    if (link){
+      return `<a href="${link}" class="btn btn-gold" style="width:100%;">${label}</a>`;
+    }
+    return `<button class="btn btn-gold is-pending" style="width:100%;" disabled>${label} <small>— coming soon</small></button>`;
+  }
+
+  if (platform === 'ios'){
+    icon.innerHTML = iosIcon;
+    status.textContent = 'Detected: iPhone / iPad';
+    headline.textContent = 'My Namaz for iOS';
+    sub.textContent = STORE_LINKS.ios
+      ? 'Available on the App Store.'
+      : 'Currently in App Store review — the button below will activate the moment it\u2019s approved.';
+    action.innerHTML = button(STORE_LINKS.ios, 'Download on the App Store');
+  } else if (platform === 'android'){
+    icon.innerHTML = androidIcon;
+    status.textContent = 'Detected: Android';
+    headline.textContent = 'My Namaz for Android';
+    sub.textContent = STORE_LINKS.android
+      ? 'Available on Google Play.'
+      : 'Currently in closed testing on Google Play — the button below will activate at launch.';
+    action.innerHTML = button(STORE_LINKS.android, 'Get it on Google Play');
+  } else {
+    status.textContent = 'Browsing from a computer?';
+    headline.textContent = 'Open this page on your phone';
+    sub.textContent = 'Or jump straight to your platform below.';
+    action.innerHTML = `<div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+      ${button(STORE_LINKS.ios, 'App Store')}
+      ${button(STORE_LINKS.android, 'Google Play')}
+    </div>`;
+  }
+}
+
+function wireBadges(){
+  const iosBadge = document.getElementById('badgeIOS');
+  const androidBadge = document.getElementById('badgeAndroid');
+  if (STORE_LINKS.ios){
+    iosBadge.href = STORE_LINKS.ios;
+    iosBadge.onclick = null;
+  } else {
+    iosBadge.classList.add('disabled');
+    iosBadge.querySelector('span').innerHTML = '<b>App Store</b><span>Coming soon — in review</span>';
+  }
+  if (STORE_LINKS.android){
+    androidBadge.href = STORE_LINKS.android;
+    androidBadge.onclick = null;
+  } else {
+    androidBadge.classList.add('disabled');
+    androidBadge.querySelector('span').innerHTML = '<b>Google Play</b><span>Coming soon — in testing</span>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  renderPrimaryAction(detectPlatform());
+  wireBadges();
+});
+</script>
 
 </body>
 </html>
