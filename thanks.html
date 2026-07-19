@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — My Namaz</title>
+<meta name="description" content="Your mosque submission has been received.">
+<meta name="theme-color" content="#0C1613">
+<style>
+/* ============================================================
+   MY NAMAZ — shared site styles
+   Palette:  bg #0C1613 · panel #12211B · panel-2 #182B21
+             gold #C8A24B · gold-dim rgba(200,162,75,.35)
+             cream #F3EEE1 · muted #93A399
+   Type:     Fraunces (display) / Public Sans (body) / Amiri (accent)
+   Signature: the mihrab arch — echoes the app icon & in-app countdown
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=Amiri&display=swap');
+
+:root{
+  --bg: #0C1613;
+  --panel: #12211B;
+  --panel-2: #17281F;
+  --line: rgba(200,162,75,.16);
+  --gold: #C8A24B;
+  --gold-bright: #E0C171;
+  --gold-dim: rgba(200,162,75,.35);
+  --cream: #F3EEE1;
+  --muted: #93A399;
+  --muted-2: #6C7C72;
+  --radius: 22px;
+  --maxw: 1120px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* faint background texture: repeating arch line, very low opacity */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(200,162,75,.05), transparent 60%);
+}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  color:var(--cream);
+  margin:0 0 .5em;
+  letter-spacing:-0.01em;
+}
+h1{font-weight:400;}
+p{margin:0 0 1em; color:var(--muted);}
+a{color:inherit;}
+img,svg{display:block; max-width:100%;}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:'Public Sans', sans-serif;
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.eyebrow::before{
+  content:"";
+  width:14px; height:1px;
+  background:var(--gold);
+}
+
+/* ---------- nav ---------- */
+.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(12,22,19,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.site-nav .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:16px; padding-bottom:16px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none;
+  font-family:'Fraunces', serif;
+  font-size:19px;
+  letter-spacing:.03em;
+  color:var(--cream);
+}
+.brand .mark{width:28px; height:28px; flex-shrink:0;}
+.brand b{font-weight:600; color:var(--gold-bright);}
+
+.nav-links{display:flex; align-items:center; gap:34px; list-style:none; margin:0; padding:0;}
+.nav-links a{
+  text-decoration:none;
+  font-size:14.5px;
+  font-weight:500;
+  color:var(--muted);
+  transition:color .2s ease;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--gold-bright);}
+.nav-links a.cta{
+  color:var(--bg);
+  background:var(--gold);
+  padding:9px 18px;
+  border-radius:999px;
+  font-weight:600;
+}
+.nav-links a.cta:hover{background:var(--gold-bright); color:var(--bg);}
+.nav-toggle{display:none;}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 26px;
+  border-radius:999px;
+  font-size:15px; font-weight:600;
+  text-decoration:none;
+  border:1px solid transparent;
+  transition:transform .18s ease, background .2s ease, border-color .2s ease;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-gold{background:var(--gold); color:#161005;}
+.btn-gold:hover{background:var(--gold-bright);}
+.btn-ghost{background:transparent; border-color:var(--line); color:var(--cream);}
+.btn-ghost:hover{border-color:var(--gold-dim);}
+.btn[disabled], .btn.is-pending{
+  opacity:.55; cursor:default; pointer-events:none;
+}
+.btn small{font-weight:500; opacity:.75; font-size:12px;}
+
+/* ---------- section rhythm ---------- */
+section{padding:96px 0; position:relative; z-index:1;}
+section.tight{padding:64px 0;}
+.section-head{max-width:640px; margin:0 0 48px;}
+.divider{
+  border:none; height:1px;
+  background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
+  margin:0;
+}
+
+/* ---------- mihrab arch frame (signature element) ---------- */
+.arch-stage{
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  padding-top:20px;
+}
+.arch-frame{
+  position:relative;
+  width:100%;
+  max-width:320px;
+  aspect-ratio:320/280;
+  border-radius:160px 160px 20px 20px;
+  background:linear-gradient(180deg, #17291F 0%, #0F1E17 100%);
+  border:1px solid var(--line);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(200,162,75,.06) inset;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 28px;
+}
+.arch-frame::before{
+  content:"";
+  position:absolute; inset:12px;
+  border-radius:150px 150px 10px 10px;
+  border:1px solid var(--gold-dim);
+  pointer-events:none;
+}
+.arch-frame svg{width:56px; height:56px; color:var(--gold);}
+
+/* ---------- footer ---------- */
+footer{
+  border-top:1px solid var(--line);
+  padding:44px 0 40px;
+}
+footer .wrap{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+}
+footer .fbrand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; color:var(--muted);}
+footer .fbrand .mark{width:20px; height:20px; opacity:.7;}
+footer .flinks{display:flex; gap:26px; list-style:none; margin:0; padding:0; font-size:13.5px;}
+footer .flinks a{text-decoration:none; color:var(--muted); transition:color .2s;}
+footer .flinks a:hover{color:var(--gold-bright);}
+footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
+
+/* ---------- generic content page ---------- */
+.page-hero{padding:120px 0 20px; text-align:center;}
+.page-hero h1{font-size:clamp(34px,4.4vw,48px);}
+.page-hero .lede{font-size:17px; max-width:52ch; margin:0 auto;}
+
+/* ---------- responsive ---------- */
+@media (max-width: 880px){
+  .nav-links{
+    position:fixed; inset:64px 16px auto 16px;
+    background:var(--panel); border:1px solid var(--line); border-radius:18px;
+    flex-direction:column; align-items:stretch; padding:14px;
+    display:none; gap:4px;
+  }
+  .nav-links.open{display:flex;}
+  .nav-links a{padding:12px 10px;}
+  .nav-links a.cta{text-align:center;}
+  .nav-toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:10px;
+    border:1px solid var(--line); background:transparent; color:var(--cream);
+    cursor:pointer;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg class="mark" width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#C8A24B" stroke-width="1"/><path d="M20 9a7.5 7.5 0 1 0 0 14 7.9 7.9 0 0 1 0-14Z" fill="#C8A24B"/><path d="M16 6.5l.7 2.1 2.2.1-1.8 1.4.7 2.1-1.8-1.3-1.8 1.3.6-2.1-1.7-1.4 2.2-.1.7-2.1Z" fill="#C8A24B"/></svg>
+      MY <b>NAMAZ</b>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 4h16M1 9h16M1 14h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="submit-mosque.html">For mosques</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+      <li><a href="download.html" class="cta">Download</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="arch-stage" style="margin-bottom:28px;">
+      <div class="arch-frame">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <span class="eyebrow" style="justify-content:center;">Submission received</span>
+    <h1>Thank you</h1>
+    <p class="lede">Your mosque submission has been received. We'll verify the timetable against the mosque's own published version — this usually takes a few days — and email you when your mosque is live in the app.</p>
+  </div>
+</header>
+
+<section class="tight">
+  <div class="wrap" style="text-align:center;">
+    <a href="index.html" class="btn btn-gold">Back to home</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">
+      <svg class="mark" width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#C8A24B" stroke-width="1"/><path d="M20 9a7.5 7.5 0 1 0 0 14 7.9 7.9 0 0 1 0-14Z" fill="#C8A24B"/></svg>
+      My Namaz
+    </div>
+    <ul class="flinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="privacy-policy.html">Privacy policy</a></li>
+      <li><a href="mailto:siislam786@gmail.com">Contact</a></li>
+    </ul>
+  </div>
+  <div class="wrap"><p class="fnote">© 2026 Shofiqul Islam. All rights reserved.</p></div>
+</footer>
+
+</body>
+</html>
