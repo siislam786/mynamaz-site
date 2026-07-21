@@ -1,0 +1,10 @@
+# Netlify custom headers.
+# CORS for the app version-check JSON only: the My Namaz app's Capacitor
+# WebView runs from https://localhost, so its fetch of these files is
+# cross-origin and needs Access-Control-Allow-Origin or the response is
+# blocked and the forced-update check silently fails open. Scoped to just
+# these two files deliberately — no site-wide CORS.
+/app-version.json
+  Access-Control-Allow-Origin: *
+/app-version-test.json
+  Access-Control-Allow-Origin: *
