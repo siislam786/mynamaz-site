@@ -523,14 +523,14 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
   <div class="wrap">
     <span class="eyebrow">For mosques</span>
     <h1>Submit your mosque</h1>
-    <p class="lede">Help your congregation. If your mosque publishes a prayer timetable (paper, PDF, or web page), share it with us and we'll add it to My Namaz — free, verified, no technical work needed from the mosque.</p>
+    <p class="lede">Help your congregation. If your mosque publishes a prayer timetable (paper, PDF, or web page), share a link or email it to us and we'll add it to My Namaz — free, verified, no technical work needed from the mosque.</p>
   </div>
 </header>
 
 <section class="tight">
   <div class="wrap">
 
-    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="form-card">
+    <form action="https://api.web3forms.com/submit" method="POST" class="form-card">
       <input type="hidden" name="access_key" value="65148c1f-214d-4e74-a284-0afe54516f3d">
       <input type="hidden" name="subject" value="My Namaz mosque submission">
       <input type="hidden" name="redirect" value="https://mynamaz.co.uk/thanks.html">
@@ -569,15 +569,9 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
       </div>
 
       <div class="field">
-        <label for="timetable-url">Link to the mosque's published timetable online</label>
-        <input type="url" id="timetable-url" name="timetable-url" placeholder="https://">
-        <p class="hint">Optional — if the timetable is on the mosque's website or Facebook page, paste the link here.</p>
-      </div>
-
-      <div class="field">
-        <label for="timetable-file">Upload the mosque's timetable</label>
-        <input type="file" id="timetable-file" name="timetable-file" accept=".pdf,.jpg,.jpeg,.png">
-        <p class="hint">Optional — PDF, JPG or PNG. A photo of a printed timetable is fine.</p>
+        <label for="timetable-link">Link to your published timetable (website page or PDF)</label>
+        <input type="url" id="timetable-link" name="timetable-link" placeholder="https://">
+        <p class="hint">Optional — a website page, Facebook post or PDF link all work. No link? No problem — email a photo or PDF of your timetable to <a href="mailto:siislam7861@gmail.com" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">siislam7861@gmail.com</a> and we'll take it from there.</p>
       </div>
 
       <div class="field">
