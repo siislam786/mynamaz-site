@@ -1,0 +1,4 @@
+{
+  "android": { "min_version_code": 999, "latest_version_name": "9.9.9" },
+  "ios": { "min_version_name": "99.0.0", "latest_version_name": "9.9.9" }
+}
