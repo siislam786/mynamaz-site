@@ -1,11 +1,2 @@
-# Custom headers. Cloudflare Pages reads this file in the same format
-# Netlify used (path line, then two-space-indented "Header: value"), so
-# this rule carried over unchanged during the migration.
-#
-# CORS for the app version-check JSON only: the My Namaz app's Capacitor
-# WebView runs from https://localhost, so its fetch of this file is
-# cross-origin and needs Access-Control-Allow-Origin or the response is
-# blocked and the forced-update check silently fails open. Scoped to just
-# this one file deliberately — no site-wide CORS.
 /app-version.json
   Access-Control-Allow-Origin: *
