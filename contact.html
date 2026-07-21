@@ -538,8 +538,12 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
       </p>
     </div>
 
-    <form name="contact" method="POST" action="/thanks.html" data-netlify="true" class="form-card">
-      <input type="hidden" name="form-name" value="contact">
+    <form action="https://api.web3forms.com/submit" method="POST" class="form-card">
+      <input type="hidden" name="access_key" value="65148c1f-214d-4e74-a284-0afe54516f3d">
+      <input type="hidden" name="subject" value="My Namaz contact form">
+      <input type="hidden" name="redirect" value="https://mynamaz.co.uk/thanks.html">
+      <!-- Web3Forms honeypot: bots fill it, humans never see it -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 
       <div class="field">
         <label for="name">Your name <span class="required-mark">*</span></label>
