@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Submit Your Mosque — My Namaz</title>
-<meta name="description" content="Help your congregation. Submit your UK mosque's prayer timetable to My Namaz — free, verified, no technical work needed from the mosque.">
+<title>Contact &amp; Support — My Namaz</title>
+<meta name="description" content="Contact My Namaz for help with the app, to report an issue, or to correct a mosque timetable. Email siislam786@gmail.com or use the contact form.">
 <meta name="theme-color" content="#0C1613">
 <style>
 /* ============================================================
@@ -510,7 +510,7 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="submit-mosque.html" class="active">For mosques</a></li>
+      <li><a href="submit-mosque.html">For mosques</a></li>
       <li><a href="privacy-policy.html">Privacy</a></li>
       <li><a href="download.html" class="cta">Download</a></li>
     </ul>
@@ -519,17 +519,27 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
 
 <header class="page-hero">
   <div class="wrap">
-    <span class="eyebrow">For mosques</span>
-    <h1>Submit your mosque</h1>
-    <p class="lede">Help your congregation. If your mosque publishes a prayer timetable (paper, PDF, or web page), share it with us and we'll add it to My Namaz — free, verified, no technical work needed from the mosque.</p>
+    <span class="eyebrow">Contact</span>
+    <h1>Contact &amp; Support</h1>
+    <p class="lede">Questions, problems, feedback, or a correction to a mosque timetable — get in touch and we'll help.</p>
   </div>
 </header>
 
 <section class="tight">
   <div class="wrap">
 
-    <form name="submit-mosque" method="POST" action="/thanks.html" data-netlify="true" enctype="multipart/form-data" class="form-card">
-      <input type="hidden" name="form-name" value="submit-mosque">
+    <div class="form-card" style="margin-bottom:28px;">
+      <h2 style="margin:0 0 10px; font-size:20px; color:var(--cream);">Email us</h2>
+      <p style="margin:0 0 6px; font-size:17px;">
+        <a href="mailto:siislam786@gmail.com" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px; font-weight:600;">siislam786@gmail.com</a>
+      </p>
+      <p style="margin:0; font-size:14px; color:var(--muted);">
+        Using the My Namaz app and need help or found an issue? Email us or use the form &mdash; we aim to reply within a few days.
+      </p>
+    </div>
+
+    <form name="contact" method="POST" action="/thanks.html" data-netlify="true" class="form-card">
+      <input type="hidden" name="form-name" value="contact">
 
       <div class="field">
         <label for="name">Your name <span class="required-mark">*</span></label>
@@ -539,50 +549,23 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
       <div class="field">
         <label for="email">Your email <span class="required-mark">*</span></label>
         <input type="email" id="email" name="email" required>
+        <p class="hint">So we can reply to you.</p>
       </div>
 
       <div class="field">
-        <label for="relationship">Your relationship to the mosque</label>
-        <select id="relationship" name="relationship">
-          <option value="Committee member">Committee member</option>
-          <option value="Imam">Imam</option>
-          <option value="Volunteer">Volunteer</option>
-          <option value="Congregant">Congregant</option>
-          <option value="Other">Other</option>
-        </select>
+        <label for="message">Message <span class="required-mark">*</span></label>
+        <textarea id="message" name="message" required></textarea>
       </div>
 
-      <div class="field">
-        <label for="mosque-name">Mosque name <span class="required-mark">*</span></label>
-        <input type="text" id="mosque-name" name="mosque-name" required>
-      </div>
-
-      <div class="field">
-        <label for="mosque-address">Mosque address, including postcode <span class="required-mark">*</span></label>
-        <textarea id="mosque-address" name="mosque-address" required></textarea>
-      </div>
-
-      <div class="field">
-        <label for="timetable-url">Link to the mosque's published timetable online</label>
-        <input type="url" id="timetable-url" name="timetable-url" placeholder="https://">
-        <p class="hint">Optional — if the timetable is on the mosque's website or Facebook page, paste the link here.</p>
-      </div>
-
-      <div class="field">
-        <label for="timetable-file">Upload the mosque's timetable</label>
-        <input type="file" id="timetable-file" name="timetable-file" accept=".pdf,.jpg,.jpeg,.png">
-        <p class="hint">Optional — PDF, JPG or PNG. A photo of a printed timetable is fine.</p>
-      </div>
-
-      <div class="field">
-        <label for="notes">Any notes for us</label>
-        <textarea id="notes" name="notes"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-gold">Submit mosque</button>
+      <button type="submit" class="btn btn-gold">Send message</button>
     </form>
 
-    <p class="form-foot">We'll verify the timetable against the mosque's own published version before adding it. This usually takes a few days. We'll email you when your mosque is live in the app.</p>
+    <p class="form-foot">
+      We read every message. For how we handle the details you send us, see our
+      <a href="privacy-policy.html" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">privacy policy</a>.
+      If your mosque would like its timetable added to the app, use the
+      <a href="submit-mosque.html" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">submit your mosque</a> form instead.
+    </p>
 
   </div>
 </section>
