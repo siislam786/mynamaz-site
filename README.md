@@ -2,6 +2,31 @@
 
 Static site for [mynamaz.co.uk](https://mynamaz.co.uk), auto-deployed by Netlify from `main`.
 
+## Email policy — read before adding any address to a page
+
+**The only address that may appear anywhere on this site is
+`siislam7861@gmail.com`** — note the trailing `1`. That applies to visible
+text, `mailto:` links, page copy and meta descriptions alike.
+
+Si's private address is the same local part **without** the trailing `1`. It
+must never appear in public-facing content. Note that this repo is public on
+GitHub *and* Netlify serves every file in the root (including this README) —
+so "public-facing" means anything committed here, not just the HTML pages.
+That's why the private address is not written out anywhere in this repo,
+including in this policy.
+
+The privacy policy page has always used the `…7861` address. That was the
+policy's first instance, not a typo — don't "correct" it.
+
+The one legitimate use of the private address is the **Netlify Forms
+notification destination**, set in the Netlify dashboard rather than in this
+repo. That's private delivery, not public display, so it correctly stays as
+the non-`1` address — nothing here needs to change for it.
+
+To audit, grep for the private local part followed immediately by `@`. The
+`@` matters: it makes the search match *only* the private address and never
+the public one, so any hit in a committed file is a bug.
+
 ## app-version.json — forced-update kill switch
 
 The My Namaz app fetches `https://mynamaz.co.uk/app-version.json` on boot (and
