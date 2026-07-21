@@ -39,28 +39,43 @@ not in this repo.
 
 ## Email policy — read before adding any address to a page
 
-**The only address that may appear anywhere on this site is
-`siislam7861@gmail.com`** — note the trailing `1`. That applies to visible
-text, `mailto:` links, page copy and meta descriptions alike.
+Three addresses, three different jobs. Only one of them ever goes on a page.
 
-Si's private address is the same local part **without** the trailing `1`. It
-must never appear in public-facing content. Note that this repo is public on
-GitHub *and* the host serves every file in the root (including this README) —
-so "public-facing" means anything committed here, not just the HTML pages.
-That's why the private address is not written out anywhere in this repo,
-including in this policy.
+**1. `contact@mynamaz.co.uk` — the public-facing address.** The *only* address
+that may appear anywhere on this site: visible text, `mailto:` links, page
+copy and meta descriptions alike. It is a Cloudflare Email Routing address
+that forwards to the delivery inbox below.
 
-The privacy policy page has always used the `…7861` address. That was the
-policy's first instance, not a typo — don't "correct" it.
+**2. `siislam7861@gmail.com` — the internal delivery destination.** Where
+Cloudflare Email Routing forwards `contact@`, and where Web3Forms sends form
+submissions (configured against the access key on the Web3Forms side, not in
+this repo). It is plumbing, not a published contact route — **don't put it on
+a page.** It used to be the public address; it was swapped out in July 2026
+when `contact@` went live.
 
-The one legitimate use of the private address is the **form-delivery
-destination**, configured against the Web3Forms access key rather than in this
-repo. That's private delivery, not public display, so it correctly stays as
-the non-`1` address — nothing here needs to change for it.
+**3. Si's private personal address** — the `siislam786…` local part, i.e. the
+same as the delivery address but *without* the trailing `1`. Never appears
+anywhere public, and is deliberately not written out in this repo at all.
 
-To audit, grep for the private local part followed immediately by `@`. The
-`@` matters: it makes the search match *only* the private address and never
-the public one, so any hit in a committed file is a bug.
+Note this repo is public on GitHub *and* the host serves every file in the
+root (including this README), so "public-facing" means anything committed
+here, not just the HTML pages.
+
+### Auditing
+
+```
+grep -rn "contact@mynamaz.co.uk" --include="*.html" .   # expect: contact, privacy-policy, submit-mosque
+grep -rn "siislam" --include="*.html" .                 # expect: no hits at all
+```
+
+Any `siislam…` address appearing in a page is a bug — the second grep above
+catches all of them in one go, which is why it's written that way rather than
+spelling any address out.
+
+To search specifically for the private address, grep its local part followed
+immediately by `@`. That trailing `@` is what distinguishes it from the
+delivery address, whose local part continues with a `1` instead. (Not written
+out here, for the reason given above.)
 
 ## app-version.json — forced-update kill switch
 
