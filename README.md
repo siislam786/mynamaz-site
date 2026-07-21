@@ -34,17 +34,3 @@ default/safe state.
 *keep allowing*, commit, and push to `main`. Netlify deploys automatically.
 The app fails open on any fetch error, timeout, or malformed JSON — it never
 blocks users who are offline or if this file is briefly unreachable.
-
-### app-version-test.json — temporary testing file, not used in production
-
-`app-version-test.json` sits alongside `app-version.json` with impossibly
-high minimums (`999` / `"99.0.0"`), so any real installed build always
-triggers the forced-update screen. It exists only so a debug build of the
-app can point its version-check URL here instead of the live file, to
-verify the forced-update overlay actually appears and behaves correctly
-before relying on the real kill switch.
-
-**Normal operation only ever edits `app-version.json`.** This test file
-plays no part in the live app (the shipped build always points at
-`app-version.json`) and should be deleted from this repo once testing is
-complete — it's a scratch fixture, not a second kill switch.
