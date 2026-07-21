@@ -1,2 +1,18 @@
+# Custom headers. Cloudflare Pages reads this file in the same format
+# Netlify used (path line, then two-space-indented "Header: value"), so
+# this rule carried over unchanged during the migration.
+#
+# CORS for the app version-check JSON: the My Namaz app's Capacitor
+# WebView runs from https://localhost, so its fetch of this file is
+# cross-origin and needs Access-Control-Allow-Origin or the response is
+# blocked and the update check silently fails open.
+#
+# NOTE: on the *.pages.dev preview domain Cloudflare adds
+# "Access-Control-Allow-Origin: *" to every response by default — it shows
+# up on images and 404s too, so it is NOT coming from this file. Verified
+# against the old Netlify host, which scoped it correctly to this one path.
+# Re-check the custom domain after the DNS flip; if it is site-wide there
+# too and that is unwanted, it needs a Cloudflare Transform Rule, not a
+# change here.
 /app-version.json
   Access-Control-Allow-Origin: *

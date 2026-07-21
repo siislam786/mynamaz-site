@@ -11,9 +11,14 @@ Hosted on **Cloudflare Pages**, which auto-builds and deploys on every push to
 There is no build step — the repo root is served as-is. `_headers` is read by
 Pages in the same format Netlify used.
 
-Pages serves extensionless URLs alongside the real filenames, so both
-`/contact` and `/contact.html` resolve. Internal links in the HTML use the
-`.html` form and work as written; don't "tidy" them into extensionless links.
+Pages prefers extensionless URLs: a request for `/contact.html` gets a **308
+redirect** to `/contact`, which then serves 200. Both forms therefore work,
+and the internal `.html` links in the HTML resolve fine — just via one extra
+redirect hop. Don't "tidy" them into extensionless links; they work as
+written.
+
+Unmatched paths fall back to `index.html` rather than returning a 404, so a
+mistyped URL renders the homepage. Worth knowing when testing.
 
 Cloudflare provides hosting and DNS only — the domains stay at their existing
 registrar.
