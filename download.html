@@ -547,7 +547,7 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
    instead of a dead link.
    ========================================================================= */
 const STORE_LINKS = {
-  ios:     "https://apps.apple.com/app/id6790208225", // LIVE on the App Store. Geo-neutral link: Apple redirects each visitor to their own storefront. The app is UK-only by design, so UK users reach the GB listing and everyone else gets their store's "not available in your region" (accurate).
+  ios:     "https://apps.apple.com/gb/app/my-namaz/id6790208225", // LIVE on the App Store. Hardcoded GB path used deliberately: the geo-neutral form (apps.apple.com/app/id6790208225) was tested on a real UK device and did NOT resolve to the listing. This GB URL is confirmed working. The app is UK-only by design.
   android: "https://play.google.com/store/apps/details?id=com.si.mynamaz", // LIVE on Google Play
 };
 
