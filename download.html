@@ -377,6 +377,14 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
 .store-badge span{display:block; font-size:11px; color:var(--muted-2);}
 .store-badge:hover{border-color:var(--gold-dim); background:rgba(200,162,75,.05);}
 .store-badge.disabled{opacity:.5; pointer-events:none;}
+/* Official Google Play badge: strip the generic pill chrome so the badge
+   artwork stands on its own. Height gives the ~1/4-height clear space and
+   keeps it above Google's minimum size. */
+.store-badge.official{border:0; padding:0; min-width:0; border-radius:10px;}
+.store-badge.official:hover{background:transparent;}
+.play-badge{display:block; height:56px; width:auto;}
+.play-badge-link{display:inline-block; line-height:0;}
+.play-badge-link:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:10px;}
 .badge-flag{
   display:inline-block; font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   background:var(--gold-dim); color:var(--gold-bright); padding:2px 8px; border-radius:999px; margin-left:8px;
@@ -507,8 +515,8 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
         <p>Submitted after TestFlight testing. Once Apple approves the build, this button will link straight to the App Store listing.</p>
       </div>
       <div class="status-card">
-        <h4><span class="dot"></span>Android — closed testing</h4>
-        <p>Running its required closed-testing period on Google Play ahead of a full production release. The link here will go live the moment testing closes.</p>
+        <h4><span class="dot"></span>Android — live on Google Play</h4>
+        <p>My Namaz is now available on the Google Play Store. Tap the Google Play badge above to install it.</p>
       </div>
     </div>
   </div>
@@ -539,8 +547,8 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
    instead of a dead link.
    ========================================================================= */
 const STORE_LINKS = {
-  ios:     null, // e.g. "https://apps.apple.com/app/id0000000000"
-  android: null, // e.g. "https://play.google.com/store/apps/details?id=com.si.mynamaz"
+  ios:     null, // e.g. "https://apps.apple.com/app/id0000000000" — still in review, leave null
+  android: "https://play.google.com/store/apps/details?id=com.si.mynamaz", // LIVE on Google Play
 };
 
 function detectPlatform(){
@@ -564,9 +572,15 @@ function renderPrimaryAction(platform){
 
   function button(link, label, sublabel){
     if (link){
-      return `<a href="${link}" class="btn btn-gold" style="width:100%;">${label}</a>`;
+      return `<a href="${link}" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%;">${label}</a>`;
     }
     return `<button class="btn btn-gold is-pending" style="width:100%;" disabled>${label} <small>— coming soon</small></button>`;
+  }
+
+  // Official "Get it on Google Play" badge, linked. Used wherever Android is
+  // live in place of the generic gold button, per Google's badge guidelines.
+  function playBadge(link){
+    return `<a href="${link}" target="_blank" rel="noopener" class="play-badge-link" aria-label="Get it on Google Play"><img class="play-badge" src="img/google-play-badge.svg" alt="Get it on Google Play"></a>`;
   }
 
   if (platform === 'ios'){
@@ -582,16 +596,18 @@ function renderPrimaryAction(platform){
     status.textContent = 'Detected: Android';
     headline.textContent = 'My Namaz for Android';
     sub.textContent = STORE_LINKS.android
-      ? 'Available on Google Play.'
+      ? 'Available now on Google Play.'
       : 'Currently in closed testing on Google Play — the button below will activate at launch.';
-    action.innerHTML = button(STORE_LINKS.android, 'Get it on Google Play');
+    action.innerHTML = STORE_LINKS.android
+      ? playBadge(STORE_LINKS.android)
+      : button(STORE_LINKS.android, 'Get it on Google Play');
   } else {
     status.textContent = 'Browsing from a computer?';
     headline.textContent = 'Open this page on your phone';
     sub.textContent = 'Or jump straight to your platform below.';
-    action.innerHTML = `<div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    action.innerHTML = `<div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; align-items:center;">
       ${button(STORE_LINKS.ios, 'App Store')}
-      ${button(STORE_LINKS.android, 'Google Play')}
+      ${STORE_LINKS.android ? playBadge(STORE_LINKS.android) : button(STORE_LINKS.android, 'Google Play')}
     </div>`;
   }
 }
@@ -608,7 +624,12 @@ function wireBadges(){
   }
   if (STORE_LINKS.android){
     androidBadge.href = STORE_LINKS.android;
+    androidBadge.target = '_blank';
+    androidBadge.rel = 'noopener';
     androidBadge.onclick = null;
+    androidBadge.classList.remove('disabled');
+    androidBadge.classList.add('official');
+    androidBadge.innerHTML = '<img class="play-badge" src="img/google-play-badge.svg" alt="Get it on Google Play">';
   } else {
     androidBadge.classList.add('disabled');
     androidBadge.querySelector('span').innerHTML = '<b>Google Play</b><span>Coming soon — in testing</span>';
