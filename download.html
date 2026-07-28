@@ -397,7 +397,15 @@ footer .fnote{font-size:12.5px; color:var(--muted-2); margin-top:18px;}
    keeps it above Google's minimum size. */
 .store-badge.official{border:0; padding:0; min-width:0; border-radius:10px;}
 .store-badge.official:hover{background:transparent;}
-.play-badge{display:block; height:56px; width:auto;}
+/* Official store badges. They have different intrinsic ratios AND different
+   built-in clear space (Apple's artwork fills its frame; Google's PNG bakes
+   in 1/4-height transparent padding), so a single height would leave Google's
+   visible pill smaller than Apple's. Sizing the Google frame ~1.5x taller
+   makes the two visible pills equal in height and keeps Play the wider of the
+   two, per Google's "equal or larger than adjacent badges" rule. */
+.play-badge{display:block; width:auto;}
+.play-badge.ios{height:48px;}
+.play-badge.android{height:72px;}
 .play-badge-link{display:inline-block; line-height:0;}
 .play-badge-link:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:10px;}
 .badge-flag{
@@ -595,13 +603,13 @@ function renderPrimaryAction(platform){
   // Official "Get it on Google Play" badge, linked. Used wherever Android is
   // live in place of the generic gold button, per Google's badge guidelines.
   function playBadge(link){
-    return `<a href="${link}" target="_blank" rel="noopener" class="play-badge-link" aria-label="Get it on Google Play"><img class="play-badge" src="img/google-play-badge.svg" alt="Get it on Google Play"></a>`;
+    return `<a href="${link}" target="_blank" rel="noopener" class="play-badge-link" aria-label="Get it on Google Play"><img class="play-badge android" src="img/google-play-badge.png" alt="Get it on Google Play"></a>`;
   }
 
   // Official "Download on the App Store" badge, linked. Same treatment as the
   // Play badge, per Apple's marketing guidelines.
   function appStoreBadge(link){
-    return `<a href="${link}" target="_blank" rel="noopener" class="play-badge-link" aria-label="Download on the App Store"><img class="play-badge" src="img/app-store-badge.svg" alt="Download on the App Store"></a>`;
+    return `<a href="${link}" target="_blank" rel="noopener" class="play-badge-link" aria-label="Download on the App Store"><img class="play-badge ios" src="img/app-store-badge.svg" alt="Download on the App Store"></a>`;
   }
 
   if (platform === 'ios'){
@@ -645,7 +653,7 @@ function wireBadges(){
     iosBadge.onclick = null;
     iosBadge.classList.remove('disabled');
     iosBadge.classList.add('official');
-    iosBadge.innerHTML = '<img class="play-badge" src="img/app-store-badge.svg" alt="Download on the App Store">';
+    iosBadge.innerHTML = '<img class="play-badge ios" src="img/app-store-badge.svg" alt="Download on the App Store">';
   } else {
     iosBadge.classList.add('disabled');
     iosBadge.querySelector('span').innerHTML = '<b>App Store</b><span>Coming soon — in review</span>';
@@ -657,7 +665,7 @@ function wireBadges(){
     androidBadge.onclick = null;
     androidBadge.classList.remove('disabled');
     androidBadge.classList.add('official');
-    androidBadge.innerHTML = '<img class="play-badge" src="img/google-play-badge.svg" alt="Get it on Google Play">';
+    androidBadge.innerHTML = '<img class="play-badge android" src="img/google-play-badge.png" alt="Get it on Google Play">';
   } else {
     androidBadge.classList.add('disabled');
     androidBadge.querySelector('span').innerHTML = '<b>Google Play</b><span>Coming soon — in testing</span>';
