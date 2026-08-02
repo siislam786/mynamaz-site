@@ -12,8 +12,9 @@ Also serves `app-version.json`, which drives the in-app "Update available" promp
 - Not an app repo: gradlew and Codemagic do not apply. Never run `gradlew`; never trigger Codemagic.
 
 ## Standing rules
+- **Pushing to `main` IS deploying — this repo auto-deploys to Cloudflare Pages. Never push without explicit instruction, even for content-only changes.**
 - UK English in all output, code comments, commit messages and user-facing copy.
-- Commit and push without asking, **except** credentials, git history rewrites, and deletions Si did not explicitly request — ask first for those.
+- Commit freely; **do not push** without being told to. Also ask first for credentials, git history rewrites, and deletions Si did not explicitly request.
 - Commit messages explain the *why* — they get read later via `git blame`.
 - Never commit keystores, `.p8`, `.p12`, provisioning profiles or any secret.
 - Never decide a product, brand or domain name autonomously — present options and wait.
