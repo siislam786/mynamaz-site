@@ -1,0 +1,26 @@
+# si-tec.uk is canonical for every app's privacy and support pages.
+#
+# These paths MUST NOT 404. /privacy-policy is on the live Google Play
+# listing for com.si.mynamaz and on the App Store listing's seller URL, so a
+# broken link here is a broken link on a published store page.
+#
+# The old .html files are deliberately left in place. Cloudflare Pages follows
+# redirects "regardless of whether or not an asset matches the incoming
+# request", so these rules win over the files and no deletion is needed to
+# make them take effect. Keeping the files means reverting is a one-line
+# change rather than a restore.
+#
+# Both the extensionless and .html forms are listed: internal links on this
+# site use privacy-policy.html, while the store listings and the og:url meta
+# tag use the extensionless form.
+#
+# Verified 2 August 2026 before adding these: all six si-tec.uk targets return
+# 200, and the si-tec copy is a superset of what was served here — same
+# headings plus a UK GDPR section and extra FAQ entries. No content is lost.
+
+/privacy-policy         https://si-tec.uk/my-namaz/privacy   301
+/privacy-policy.html    https://si-tec.uk/my-namaz/privacy   301
+/myamaan-privacy        https://si-tec.uk/my-amaan/privacy   301
+/myamaan-privacy.html   https://si-tec.uk/my-amaan/privacy   301
+/myamaan-support        https://si-tec.uk/my-amaan/support   301
+/myamaan-support.html   https://si-tec.uk/my-amaan/support   301
